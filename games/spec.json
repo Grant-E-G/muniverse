@@ -9602,4 +9602,46 @@
     "mouseType": "general",
     "mouseRequired": false
   }
+  
+  {
+    "name": "UniversalPaperclips-v0",
+    "base": "http://www.decisionproblem.com/paperclips/",
+    "top_injections": [
+      "faketime.js",
+    ],
+    "bottom_injections": [
+      "utils.js",
+    ],
+    "resources": [
+      "index2.html",
+      "analytics.js",
+      "combat.js",
+      "google_badge.svg",
+      "js.js",
+      "mobile-title.png",
+      "apple_badge.svg",
+      "globals.js",
+      "interface.css",
+      "main.js"
+      "projects.js"
+      
+
+    ],
+    "processors": [
+
+    ],
+    "metadata": {
+
+    },
+    "width": 960,
+    "height": 720,
+    "all_canvas": true,
+    "key_whitelist": [
+      "ArrowLeft",
+      "ArrowRight"
+    ],
+    "mouseType": "general",
+    "mouseRequired": true
+  }
+  
 ]
