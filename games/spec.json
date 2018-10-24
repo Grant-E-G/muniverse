@@ -9604,7 +9604,7 @@
   }
   
   {
-    "name": "UniversalPaperclips-v0",
+    "name": "UPaperClips-v0",
     "base": "http://www.decisionproblem.com/paperclips/",
     "top_injections": [
       "faketime.js",
@@ -9628,6 +9628,7 @@
 
     ],
     "processors": [
+    "UPaperClips-v0",
 
     ],
     "metadata": {
@@ -9635,11 +9636,8 @@
     },
     "width": 960,
     "height": 720,
-    "all_canvas": true,
-    "key_whitelist": [
-      "ArrowLeft",
-      "ArrowRight"
-    ],
+    "all_canvas": false,
+    "key_whitelist": [],
     "mouseType": "general",
     "mouseRequired": true
   }
