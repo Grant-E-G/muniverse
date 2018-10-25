@@ -3181,6 +3181,18 @@ var EnvSpecs = []*EnvSpec{
 		MouseType:     "general",
 		MouseRequired: false,
 	},
+
+	{
+		Name:      "UPaperClips-v0",
+		BaseURL:   "http://www.decisionproblem.com/paperclips/",
+		Width:     960,
+		Height:    720,
+		AllCanvas: false,
+		Options:   "{}",
+
+		MouseType:     "general",
+		MouseRequired: true,
+	},
 }
 
 // SpecForName finds the first entry in EnvSpecs with the
