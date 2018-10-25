@@ -9601,16 +9601,15 @@
     ],
     "mouseType": "general",
     "mouseRequired": false
-  }
-  
+  },
   {
     "name": "UPaperClips-v0",
     "base": "http://www.decisionproblem.com/paperclips/",
     "top_injections": [
-      "faketime.js",
+      "faketime.js"
     ],
     "bottom_injections": [
-      "utils.js",
+      "UPaperClips-v0.js"
     ],
     "resources": [
       "index2.html",
@@ -9622,14 +9621,11 @@
       "apple_badge.svg",
       "globals.js",
       "interface.css",
-      "main.js"
+      "main.js",
       "projects.js"
-      
-
     ],
     "processors": [
-    "UPaperClips-v0",
-
+    "UPaperClips-v0"
     ],
     "metadata": {
 
