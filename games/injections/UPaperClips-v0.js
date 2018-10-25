@@ -1,9 +1,6 @@
 (function() {
 
-  var LOAD_TIMEOUT = 60000;
 
-  // Game depends on a certain framerate.
-  // window.faketime.animationFrameRate = 60;
 
   localStorage.clear();
 
@@ -15,16 +12,15 @@
   window.muniverse = {
     init: function() {
     
-      window.reset();
-      
-     
+      faketime.pause();
+      return Promise.resolve(window.reset() != true);
     },
     step: function(millis) {
       faketime.advance(millis);
       return Promise.resolve(milestoneFlag == 15);
     },
     score: function() {
-      return Promise.resolve(milestoneFlag == 15  ?  : weightedScore());
+      return Promise.resolve(milestoneFlag == 15  ? 26 : weightedScore());
     }
   };
 

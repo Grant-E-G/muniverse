@@ -3,14 +3,16 @@
 DIR="$1"
 
 mv "$DIR/index2.html" "$DIR/index2_pre_UPaperClips.html"
-cat "$DIR/index2_pre_UPaperclips.html" |
-  sed -E 's/<script async="" src="https:\/\/www.googletagmanager\.com\/gtag\/js\?id=UA-107491380-1"><\/script>//g' |
+cat "$DIR/index2_pre_UPaperClips.html" |
+  sed -E 's/<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=UA-107491380-1"><\/script>//g' |
   sed -E 's/window\.dataLayer = window\.dataLayer \|\| \[];//g' |
   sed -E 's/function gtag\(\)\{dataLayer\.push\(arguments\)};//g' |
   sed -E "s/gtag\('js', new Date\(\)\);//g" |
   sed -E "s/gtag\('config', 'UA-107491380-1'\);//g" |
   sed -E "s/gtag\('set', \{'user_id': 'USER_ID'}\);//g" |
-  sed -E 's/Mobile Version: <a href="https:\/\/t\.co\/t7YJKgiQpr" target="_blank">iPhone<\/a> \/ <a href="https:\/\/t\.co\/vtIAcdIYEj" target="_blank">Android<\/a><br>//g' |
-  sed -E 's/T-Shirts: <a href="https:\/\/teespring\.com\/stores\/universal-paperclips" target="_blank">Gift Shop<\/a>//g' \
+  sed -E 's/<a href="https:\/\/itunes\.apple\.com\/us\/app\/universal-paperclips\/id1300634274\?ls=1&mt=8"><img src="apple_badge\.svg" id="apple_badge"><\/a>//g' |
+  sed -E 's/<a href="https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.everybodyhouse\.paperclipsuniquetest"><img src="google_badge\.svg" id="google_badge"><\/a>//g' |
+  sed -E 's/Mobile Version: <a href = "https:\/\/t\.co\/t7YJKgiQpr" target = "_blank">iPhone<\/a> \/ <a href = "https:\/\/t\.co\/vtIAcdIYEj" target = "_blank">Android<\/a><br \/>//g' |
+  sed -E 's/T-Shirts: <a href = "https:\/\/teespring\.com\/stores\/universal-paperclips" target="_blank" >Gift Shop<\/a>//g' \
   > "$DIR/index2.html"
 cat "$DIR/index2.html" > "$DIR/index.html"
