@@ -9609,6 +9609,7 @@
       "faketime.js"
     ],
     "bottom_injections": [
+      "utils.js",
       "UPaperClips-v0.js"
     ],
     "resources": [

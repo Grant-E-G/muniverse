@@ -1,7 +1,7 @@
 (function() {
+  var LOAD_TIMEOUT = 6000;
 
-
-
+  window.faketime.animationFrameRate = 15
   localStorage.clear();
 
 
@@ -11,9 +11,11 @@
 
   window.muniverse = {
     init: function() {
-    
-      faketime.pause();
-      return Promise.resolve(window.reset() != true);
+    return pollAndWait(LOAD_TIMEOUT, function() {
+        return milestoneFlag == 0;
+      }).then(function() {
+        faketime.pause();
+        });
     },
     step: function(millis) {
       faketime.advance(millis);
