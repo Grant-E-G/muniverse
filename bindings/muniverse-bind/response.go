@@ -5,7 +5,7 @@ import (
 	"io"
 
 	"github.com/unixpickle/essentials"
-	"github.com/unixpickle/muniverse"
+	"github.com/Grant-E-G/muniverse"
 	"github.com/unixpickle/muniverse/chrome"
 
 	"gopkg.in/mgo.v2/bson"
