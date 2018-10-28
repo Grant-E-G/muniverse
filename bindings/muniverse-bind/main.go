@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/unixpickle/essentials"
-	"github.com/unixpickle/muniverse"
+	"github.com/Grant-E-G/muniverse"
 	"github.com/unixpickle/muniverse/chrome"
 )
 
