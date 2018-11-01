@@ -12,7 +12,7 @@ class Env:
     An environment instance.
     """
 
-    def __init__(self, spec, container=None, chrome_host=None, game_host=None):
+    def __init__(self, spec, container=None, chrome_host=None, game_host=None, mouse_render=False, xinit=100, yinit=100):
         """
         Create a new environment from the specification.
 
@@ -45,6 +45,13 @@ class Env:
         try:
             self.uid = handle.checked_call(call_name, call_obj)['UID']
             self.handle = handle
+            if mouse_render == True:
+                call_name = 'CursorEnv'
+                call_obj['UID'] = self.uid
+                call_obj['Xinit'] = xinit
+                call_obj['Yinit'] = yinit
+                self.uid = handle.checked_call(call_name, call_obj)['UID']
+                self.handle = handle
         finally:
             if self.handle is None:
                 handle.close()
