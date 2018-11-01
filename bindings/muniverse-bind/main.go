@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/unixpickle/essentials"
 	"github.com/Grant-E-G/muniverse"
+	"github.com/unixpickle/essentials"
 	"github.com/unixpickle/muniverse/chrome"
 )
 
@@ -110,11 +110,38 @@ func (b *Server) handleCall(call *Call) *Response {
 		return b.observe(call)
 	case call.KeyForCode != nil:
 		return b.keyForCode(call)
+	case call.CursorEnv != nil:
+		return b.cursorEnv(call)
 	default:
 		return ErrorResponse(errors.New("malformed call"))
 	}
 }
 
+// in progress attempt to add cursor redering to bindings
+func (b *Server) cursorEnv(call *Call) *Response {
+	var xval *int
+	var yval *int
+	env, errResp := b.lookupEnv(call.CursorEnv.UID)
+	if errResp != nil {
+		return errResp
+	}
+	xval = &call.CursorEnv.Xinit
+	yval = &call.CursorEnv.Yinit
+	if xval == nil || yval == nil {
+		panic("No x or y init specified")
+	}
+	cenv := muniverse.CursorEnv(env, *xval, *yval)
+	response := &Response{}
+
+	b.envsLock.Lock()
+	uid := strconv.FormatInt(b.currentUID, 10)
+	b.currentUID++
+	b.envsByUID[uid] = cenv
+	b.envsLock.Unlock()
+	response.UID = &uid
+
+	return response
+}
 func (b *Server) specForName(call *Call) *Response {
 	return &Response{
 		Spec: muniverse.SpecForName(call.SpecForName.Name),

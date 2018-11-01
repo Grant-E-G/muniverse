@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/unixpickle/essentials"
 	"github.com/Grant-E-G/muniverse"
+	"github.com/unixpickle/essentials"
 	"github.com/unixpickle/muniverse/chrome"
 
 	"gopkg.in/mgo.v2/bson"
@@ -25,6 +25,7 @@ type Call struct {
 	Step            *CallStep            `bson:"Step"`
 	Observe         *CallObserve         `bson:"Observe"`
 	KeyForCode      *CallKeyForCode      `bson:"KeyForCode"`
+	CursorEnv       *CallCursorEnv       `bson:"CursorEnv"`
 }
 
 // ReadCall decodes a Call from an input stream.
@@ -90,4 +91,9 @@ type CallKeyForCode struct {
 type Event struct {
 	KeyEvent   *chrome.KeyEvent   `bson:"KeyEvent"`
 	MouseEvent *chrome.MouseEvent `bson:"MouseEvent"`
+}
+type CallCursorEnv struct {
+	UID   string `bson:"UID"`
+	Xinit int    `bson:"Xinit"`
+	Yinit int    `bson:"Yinit"`
 }
